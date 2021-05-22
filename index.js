@@ -1,25 +1,13 @@
-function MyArrayProto() {
-  this.map = function (cb) {
-    const result = new MyArray();
+"use strict";
 
-    for (let i = 0; i < this.length; i++) {
-      const cbResult = cb(this[i], i, this);
-      result.push(cbResult);
-    }
-  };
-}
+/*
+Написать функцию, принимающею строку в качестве аргумента, возвращающую
+количество главных в строке. Галсные a e i o u, верхний регистр тоже.
 
-function MyArray(...args) {}
+*/
 
-MyArray.prototype = new MyArrayProto();
-
-const meArray = new MyArray(
-  {
-    age: 18,
-    name: "test",
-  },
-  {
-    age: 21,
-    name: "test2",
-  }
-);
+const countVowels = (string) => {
+  const stringToIterate = string.toLowerCase();
+  const vowelsList = ["a", "e", "i", "o", "u"];
+  return string.toLowerCase().split('').filter((letter) => vowelsList.includes(letter)).length; 
+};
