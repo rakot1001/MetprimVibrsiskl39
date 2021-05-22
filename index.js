@@ -6,8 +6,16 @@
 
 */
 
-const countVowels = (string) => {
-  const stringToIterate = string.toLowerCase();
-  const vowelsList = ["a", "e", "i", "o", "u"];
-  return string.toLowerCase().split('').filter((letter) => vowelsList.includes(letter)).length; 
+const pow = (num, exp) => {
+  if(typeof num !=='number'||typeof exp !=='number'){
+    throw new TypeError();
+  }
+
+  if(exp<=0){
+    throw new RangeError('exp must be a positive');
+  }
+  if (exp === 1) {
+    return num;
+  }
+  return pow(num, exp - 1) * num;
 };
